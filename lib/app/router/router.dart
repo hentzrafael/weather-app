@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:weather_app/features/auth/data/repositories/auth_repository.dart';
 import 'package:weather_app/features/auth/ui/login_screen.dart';
 import 'package:weather_app/features/auth/ui/viewmodels/login_viewmodel.dart';
+import 'package:weather_app/features/weather/ui/viewmodels/weather_viewmodel.dart';
 import 'package:weather_app/features/weather/ui/weather_screen.dart';
 import 'package:weather_app/app/router/routes.dart';
 
@@ -17,7 +18,12 @@ GoRouter router = GoRouter(
           (context, state) =>
               LoginScreen(viewModel: context.read<LoginViewModel>()),
     ),
-    GoRoute(path: '/', builder: (context, state) => WeatherScreen()),
+    GoRoute(
+      path: '/',
+      builder:
+          (context, state) =>
+              WeatherScreen(viewModel: context.read<WeatherViewModel>()),
+    ),
   ],
 );
 

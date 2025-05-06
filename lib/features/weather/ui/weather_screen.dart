@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/features/auth/data/repositories/auth_repository.dart';
+import 'package:weather_app/features/weather/ui/viewmodels/weather_viewmodel.dart';
 
 class WeatherScreen extends StatefulWidget {
-  const WeatherScreen({super.key});
+  final WeatherViewModel viewModel;
+  const WeatherScreen({super.key, required this.viewModel});
 
   @override
   State<WeatherScreen> createState() => _WeatherScreenState();
@@ -14,6 +16,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   void initState() {
     super.initState();
     //TODO: Get weather data
+    widget.viewModel.getPositionCommand.execute();
   }
 
   @override
@@ -30,7 +33,17 @@ class _WeatherScreenState extends State<WeatherScreen> {
           ),
         ],
       ),
-      body: const Center(child: Text('Weather')),
+      body: ListenableBuilder(
+        listenable: widget.viewModel,
+        builder: (context, child) {
+          return Center(
+            child:
+                widget.viewModel.getPositionCommand.completed
+                    ? Text(widget.viewModel.position!.toString())
+                    : const CircularProgressIndicator(),
+          );
+        },
+      ),
     );
   }
 }
