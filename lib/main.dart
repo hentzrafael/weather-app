@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/app/injection/providers.dart';
 import 'package:weather_app/app/router/router.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: 'assets/.env');
+
   runApp(MultiProvider(providers: providers, child: const MyApp()));
 }
 
