@@ -4,8 +4,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:weather_app/core/storage_keys.dart';
 import 'package:weather_app/core/utils/result.dart';
-import 'package:weather_app/features/weather/data/repositories/location_repository.dart';
-import 'package:weather_app/features/weather/data/services/location_service.dart';
+import 'package:weather_app/features/weather/data/repositories/location/location_repository.dart';
+import 'package:weather_app/features/weather/data/services/location/location_service.dart';
 
 class LocationRepositoryImpl extends LocationRepository {
   final LocationService locationService;
@@ -17,13 +17,13 @@ class LocationRepositoryImpl extends LocationRepository {
   });
 
   @override
-  Future<Result<Position>> getCurrentPosition() async {
+  Future<Result<Position>> getCurrentPosition({
+    bool forceUpdate = false,
+  }) async {
     final location = await getLocation();
-    if (location != null) {
-      print("Getting from storage");
+    if (location != null && !forceUpdate) {
       return Result.success(location);
     }
-    print("Getting from service");
     final result = await locationService.determinePosition();
     switch (result) {
       case Success():
@@ -43,7 +43,6 @@ class LocationRepositoryImpl extends LocationRepository {
 
   Future<Position?> getLocation() async {
     final location = await secureStorage.read(key: StorageKeys.location);
-    print("Location: $location");
     if (location == null) {
       return null;
     }

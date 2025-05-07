@@ -1,6 +1,6 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:weather_app/core/utils/result.dart';
-import 'package:weather_app/features/weather/data/services/location_service.dart';
+import 'package:weather_app/features/weather/data/services/location/location_service.dart';
 
 class GeolocatorLocationService implements LocationService {
   @override

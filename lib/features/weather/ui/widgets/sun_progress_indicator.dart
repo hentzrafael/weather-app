@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import 'package:intl/intl.dart';
+
 class SunProgressIndicator extends StatelessWidget {
   final int sunrise;
   final int sunset;
@@ -23,8 +25,14 @@ class SunProgressIndicator extends StatelessWidget {
     final clampedProgress = progress.clamp(0.0, 1.0);
 
     // Calculate time remaining
-    final timeUntilSunset = sunsetTime.difference(DateTime.now());
-    final timeSinceSunrise = DateTime.now().difference(sunriseTime);
+    Duration timeUntilSunset = sunsetTime.difference(DateTime.now());
+    if (timeUntilSunset.isNegative) {
+      timeUntilSunset = Duration.zero;
+    }
+    Duration timeSinceSunrise = DateTime.now().difference(sunriseTime);
+    if (timeSinceSunrise.isNegative) {
+      timeSinceSunrise = Duration.zero;
+    }
 
     return Column(
       children: [
@@ -40,7 +48,9 @@ class SunProgressIndicator extends StatelessWidget {
           children: [
             Column(
               children: [
-                const Text('Since sunrise'),
+                Text(
+                  'Since sunrise at ${DateFormat('HH:mm').format(sunriseTime)}',
+                ),
                 Text(
                   '${timeSinceSunrise.inHours}h ${timeSinceSunrise.inMinutes % 60}m',
                   style: const TextStyle(fontWeight: FontWeight.bold),
@@ -49,7 +59,9 @@ class SunProgressIndicator extends StatelessWidget {
             ),
             Column(
               children: [
-                const Text('Until sunset'),
+                Text(
+                  'Until sunset at ${DateFormat('HH:mm').format(sunsetTime)}',
+                ),
                 Text(
                   '${timeUntilSunset.inHours}h ${timeUntilSunset.inMinutes % 60}m',
                   style: const TextStyle(fontWeight: FontWeight.bold),

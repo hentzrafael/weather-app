@@ -40,13 +40,13 @@ abstract class Weather with _$Weather {
 abstract class Main with _$Main {
   const factory Main({
     double? temp,
-    double? feels_like,
-    double? temp_min,
-    double? temp_max,
+    double? feelsLike,
+    double? tempMin,
+    double? tempMax,
     int? pressure,
     int? humidity,
-    int? sea_level,
-    int? grnd_level,
+    int? seaLevel,
+    int? grndLevel,
   }) = _Main;
 
   factory Main.fromJson(Map<String, dynamic> json) => _$MainFromJson(json);

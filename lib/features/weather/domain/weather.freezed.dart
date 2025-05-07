@@ -374,7 +374,7 @@ as String?,
 /// @nodoc
 mixin _$Main {
 
- double? get temp; double? get feels_like; double? get temp_min; double? get temp_max; int? get pressure; int? get humidity; int? get sea_level; int? get grnd_level;
+ double? get temp; double? get feelsLike; double? get tempMin; double? get tempMax; int? get pressure; int? get humidity; int? get seaLevel; int? get grndLevel;
 /// Create a copy of Main
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -387,16 +387,16 @@ $MainCopyWith<Main> get copyWith => _$MainCopyWithImpl<Main>(this as Main, _$ide
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Main&&(identical(other.temp, temp) || other.temp == temp)&&(identical(other.feels_like, feels_like) || other.feels_like == feels_like)&&(identical(other.temp_min, temp_min) || other.temp_min == temp_min)&&(identical(other.temp_max, temp_max) || other.temp_max == temp_max)&&(identical(other.pressure, pressure) || other.pressure == pressure)&&(identical(other.humidity, humidity) || other.humidity == humidity)&&(identical(other.sea_level, sea_level) || other.sea_level == sea_level)&&(identical(other.grnd_level, grnd_level) || other.grnd_level == grnd_level));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Main&&(identical(other.temp, temp) || other.temp == temp)&&(identical(other.feelsLike, feelsLike) || other.feelsLike == feelsLike)&&(identical(other.tempMin, tempMin) || other.tempMin == tempMin)&&(identical(other.tempMax, tempMax) || other.tempMax == tempMax)&&(identical(other.pressure, pressure) || other.pressure == pressure)&&(identical(other.humidity, humidity) || other.humidity == humidity)&&(identical(other.seaLevel, seaLevel) || other.seaLevel == seaLevel)&&(identical(other.grndLevel, grndLevel) || other.grndLevel == grndLevel));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,temp,feels_like,temp_min,temp_max,pressure,humidity,sea_level,grnd_level);
+int get hashCode => Object.hash(runtimeType,temp,feelsLike,tempMin,tempMax,pressure,humidity,seaLevel,grndLevel);
 
 @override
 String toString() {
-  return 'Main(temp: $temp, feels_like: $feels_like, temp_min: $temp_min, temp_max: $temp_max, pressure: $pressure, humidity: $humidity, sea_level: $sea_level, grnd_level: $grnd_level)';
+  return 'Main(temp: $temp, feelsLike: $feelsLike, tempMin: $tempMin, tempMax: $tempMax, pressure: $pressure, humidity: $humidity, seaLevel: $seaLevel, grndLevel: $grndLevel)';
 }
 
 
@@ -407,7 +407,7 @@ abstract mixin class $MainCopyWith<$Res>  {
   factory $MainCopyWith(Main value, $Res Function(Main) _then) = _$MainCopyWithImpl;
 @useResult
 $Res call({
- double? temp, double? feels_like, double? temp_min, double? temp_max, int? pressure, int? humidity, int? sea_level, int? grnd_level
+ double? temp, double? feelsLike, double? tempMin, double? tempMax, int? pressure, int? humidity, int? seaLevel, int? grndLevel
 });
 
 
@@ -424,16 +424,16 @@ class _$MainCopyWithImpl<$Res>
 
 /// Create a copy of Main
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? temp = freezed,Object? feels_like = freezed,Object? temp_min = freezed,Object? temp_max = freezed,Object? pressure = freezed,Object? humidity = freezed,Object? sea_level = freezed,Object? grnd_level = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? temp = freezed,Object? feelsLike = freezed,Object? tempMin = freezed,Object? tempMax = freezed,Object? pressure = freezed,Object? humidity = freezed,Object? seaLevel = freezed,Object? grndLevel = freezed,}) {
   return _then(_self.copyWith(
 temp: freezed == temp ? _self.temp : temp // ignore: cast_nullable_to_non_nullable
-as double?,feels_like: freezed == feels_like ? _self.feels_like : feels_like // ignore: cast_nullable_to_non_nullable
-as double?,temp_min: freezed == temp_min ? _self.temp_min : temp_min // ignore: cast_nullable_to_non_nullable
-as double?,temp_max: freezed == temp_max ? _self.temp_max : temp_max // ignore: cast_nullable_to_non_nullable
+as double?,feelsLike: freezed == feelsLike ? _self.feelsLike : feelsLike // ignore: cast_nullable_to_non_nullable
+as double?,tempMin: freezed == tempMin ? _self.tempMin : tempMin // ignore: cast_nullable_to_non_nullable
+as double?,tempMax: freezed == tempMax ? _self.tempMax : tempMax // ignore: cast_nullable_to_non_nullable
 as double?,pressure: freezed == pressure ? _self.pressure : pressure // ignore: cast_nullable_to_non_nullable
 as int?,humidity: freezed == humidity ? _self.humidity : humidity // ignore: cast_nullable_to_non_nullable
-as int?,sea_level: freezed == sea_level ? _self.sea_level : sea_level // ignore: cast_nullable_to_non_nullable
-as int?,grnd_level: freezed == grnd_level ? _self.grnd_level : grnd_level // ignore: cast_nullable_to_non_nullable
+as int?,seaLevel: freezed == seaLevel ? _self.seaLevel : seaLevel // ignore: cast_nullable_to_non_nullable
+as int?,grndLevel: freezed == grndLevel ? _self.grndLevel : grndLevel // ignore: cast_nullable_to_non_nullable
 as int?,
   ));
 }
@@ -445,17 +445,17 @@ as int?,
 @JsonSerializable()
 
 class _Main implements Main {
-  const _Main({this.temp, this.feels_like, this.temp_min, this.temp_max, this.pressure, this.humidity, this.sea_level, this.grnd_level});
+  const _Main({this.temp, this.feelsLike, this.tempMin, this.tempMax, this.pressure, this.humidity, this.seaLevel, this.grndLevel});
   factory _Main.fromJson(Map<String, dynamic> json) => _$MainFromJson(json);
 
 @override final  double? temp;
-@override final  double? feels_like;
-@override final  double? temp_min;
-@override final  double? temp_max;
+@override final  double? feelsLike;
+@override final  double? tempMin;
+@override final  double? tempMax;
 @override final  int? pressure;
 @override final  int? humidity;
-@override final  int? sea_level;
-@override final  int? grnd_level;
+@override final  int? seaLevel;
+@override final  int? grndLevel;
 
 /// Create a copy of Main
 /// with the given fields replaced by the non-null parameter values.
@@ -470,16 +470,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Main&&(identical(other.temp, temp) || other.temp == temp)&&(identical(other.feels_like, feels_like) || other.feels_like == feels_like)&&(identical(other.temp_min, temp_min) || other.temp_min == temp_min)&&(identical(other.temp_max, temp_max) || other.temp_max == temp_max)&&(identical(other.pressure, pressure) || other.pressure == pressure)&&(identical(other.humidity, humidity) || other.humidity == humidity)&&(identical(other.sea_level, sea_level) || other.sea_level == sea_level)&&(identical(other.grnd_level, grnd_level) || other.grnd_level == grnd_level));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Main&&(identical(other.temp, temp) || other.temp == temp)&&(identical(other.feelsLike, feelsLike) || other.feelsLike == feelsLike)&&(identical(other.tempMin, tempMin) || other.tempMin == tempMin)&&(identical(other.tempMax, tempMax) || other.tempMax == tempMax)&&(identical(other.pressure, pressure) || other.pressure == pressure)&&(identical(other.humidity, humidity) || other.humidity == humidity)&&(identical(other.seaLevel, seaLevel) || other.seaLevel == seaLevel)&&(identical(other.grndLevel, grndLevel) || other.grndLevel == grndLevel));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,temp,feels_like,temp_min,temp_max,pressure,humidity,sea_level,grnd_level);
+int get hashCode => Object.hash(runtimeType,temp,feelsLike,tempMin,tempMax,pressure,humidity,seaLevel,grndLevel);
 
 @override
 String toString() {
-  return 'Main(temp: $temp, feels_like: $feels_like, temp_min: $temp_min, temp_max: $temp_max, pressure: $pressure, humidity: $humidity, sea_level: $sea_level, grnd_level: $grnd_level)';
+  return 'Main(temp: $temp, feelsLike: $feelsLike, tempMin: $tempMin, tempMax: $tempMax, pressure: $pressure, humidity: $humidity, seaLevel: $seaLevel, grndLevel: $grndLevel)';
 }
 
 
@@ -490,7 +490,7 @@ abstract mixin class _$MainCopyWith<$Res> implements $MainCopyWith<$Res> {
   factory _$MainCopyWith(_Main value, $Res Function(_Main) _then) = __$MainCopyWithImpl;
 @override @useResult
 $Res call({
- double? temp, double? feels_like, double? temp_min, double? temp_max, int? pressure, int? humidity, int? sea_level, int? grnd_level
+ double? temp, double? feelsLike, double? tempMin, double? tempMax, int? pressure, int? humidity, int? seaLevel, int? grndLevel
 });
 
 
@@ -507,16 +507,16 @@ class __$MainCopyWithImpl<$Res>
 
 /// Create a copy of Main
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? temp = freezed,Object? feels_like = freezed,Object? temp_min = freezed,Object? temp_max = freezed,Object? pressure = freezed,Object? humidity = freezed,Object? sea_level = freezed,Object? grnd_level = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? temp = freezed,Object? feelsLike = freezed,Object? tempMin = freezed,Object? tempMax = freezed,Object? pressure = freezed,Object? humidity = freezed,Object? seaLevel = freezed,Object? grndLevel = freezed,}) {
   return _then(_Main(
 temp: freezed == temp ? _self.temp : temp // ignore: cast_nullable_to_non_nullable
-as double?,feels_like: freezed == feels_like ? _self.feels_like : feels_like // ignore: cast_nullable_to_non_nullable
-as double?,temp_min: freezed == temp_min ? _self.temp_min : temp_min // ignore: cast_nullable_to_non_nullable
-as double?,temp_max: freezed == temp_max ? _self.temp_max : temp_max // ignore: cast_nullable_to_non_nullable
+as double?,feelsLike: freezed == feelsLike ? _self.feelsLike : feelsLike // ignore: cast_nullable_to_non_nullable
+as double?,tempMin: freezed == tempMin ? _self.tempMin : tempMin // ignore: cast_nullable_to_non_nullable
+as double?,tempMax: freezed == tempMax ? _self.tempMax : tempMax // ignore: cast_nullable_to_non_nullable
 as double?,pressure: freezed == pressure ? _self.pressure : pressure // ignore: cast_nullable_to_non_nullable
 as int?,humidity: freezed == humidity ? _self.humidity : humidity // ignore: cast_nullable_to_non_nullable
-as int?,sea_level: freezed == sea_level ? _self.sea_level : sea_level // ignore: cast_nullable_to_non_nullable
-as int?,grnd_level: freezed == grnd_level ? _self.grnd_level : grnd_level // ignore: cast_nullable_to_non_nullable
+as int?,seaLevel: freezed == seaLevel ? _self.seaLevel : seaLevel // ignore: cast_nullable_to_non_nullable
+as int?,grndLevel: freezed == grndLevel ? _self.grndLevel : grndLevel // ignore: cast_nullable_to_non_nullable
 as int?,
   ));
 }

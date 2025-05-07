@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather_app/core/utils/command.dart';
 import 'package:weather_app/core/utils/result.dart';
-import 'package:weather_app/features/weather/data/repositories/location_repository.dart';
+import 'package:weather_app/features/weather/data/repositories/location/location_repository.dart';
 import 'package:weather_app/features/weather/data/repositories/weather/weather_repository.dart';
 import 'package:weather_app/features/weather/domain/weather.dart';
 
@@ -39,7 +39,9 @@ class WeatherViewModel extends ChangeNotifier {
   }
 
   Future<Result<Position>> _getCurrentPosition() async {
-    final position = await locationRepository.getCurrentPosition();
+    final position = await locationRepository.getCurrentPosition(
+      forceUpdate: isRefreshing,
+    );
     switch (position) {
       case Success():
         this.position = position.value;
@@ -64,7 +66,7 @@ class WeatherViewModel extends ChangeNotifier {
     );
     switch (result) {
       case Success():
-        this.weather = result.value;
+        weather = result.value;
         return Result.success(result.value);
       case Error():
         return Result.error(result.error);
