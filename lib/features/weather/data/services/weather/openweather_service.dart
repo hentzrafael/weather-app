@@ -14,12 +14,16 @@ class OpenWeatherService implements WeatherService {
     double lat,
     double lon,
   ) async {
-    final response = await dio.get(
-      'https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=${environment.apiKey}&units=metric',
-    );
-    if (response.statusCode == 200) {
-      return Result.success(response.data);
+    try {
+      final response = await dio.get(
+        'https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=${environment.apiKey}&units=metric',
+      );
+      if (response.statusCode == 200) {
+        return Result.success(response.data);
+      }
+      return Result.error(Exception(response.data));
+    } catch (e) {
+      return Result.error(Exception(e));
     }
-    return Result.error(response.data);
   }
 }
