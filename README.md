@@ -48,7 +48,7 @@ ___
 ### Frontend
 
 #### Login Page
-<img src=".github/img/login-light.png" width="60%">
+<img src="./.github/img/login-light.png" width="60%">
 
 This page has a simple form to simulate the real user experience of a login system. It doesn't contain all the features needed to implement a secure login, like JWT token auth and cryptography, but all of this can be easily implemented. 
 
@@ -61,7 +61,7 @@ Future changes
 
 #### Weather Page
 
-<img src=".github/img/weather-dark.png" width="60%">
+<img src="./.github/img/weather-dark.png" width="60%">
 
 This is the main page of the app, it will prompt you to allow access to your location, and, if you grant it, it will make a request to gather Current Weather information of your place.
 
@@ -73,7 +73,7 @@ As for the icon, it is related to the status and time of your weather. If it's n
 
 Here is the mobile version:
 
-<img src=".github/img/mobile.jpeg" width="30%">
+<img src="./.github/img/mobile.jpeg" width="30%">
 
 Future changes
 1. Add location saving
